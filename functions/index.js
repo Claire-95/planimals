@@ -45,7 +45,7 @@ main.post("/pets", async (req, res) => {
 const pets = [];
 userQuerySnapshot.forEach(
   (doc)=>{
-    petStorage.push({
+    pets.push({
       id: doc.id, data: doc.data(),
     });
   }
