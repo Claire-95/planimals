@@ -17,7 +17,7 @@ const petCollection = "pets";
 // add the path to receive request and set json as bodyParser to process body
 main.use("/api/v1", app);
 main.use(bodyParser.json());
-main.use(bodyParser.urlencoded({ extended: false }));
+main.use(bodyParser.urlencoded({ extended: true }));
 
 // Get pets
 main.get("/pets", async (req, res) => {
