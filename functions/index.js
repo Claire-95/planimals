@@ -40,10 +40,10 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     await db.collection(petCollection).add(req.body);
-    const userQuerySnapshot = await db.collection(petCollection).get();
+    const petQuerySnapshot = await db.collection(petCollection).get();
 
     const pets = [];
-    userQuerySnapshot.forEach((doc) => {
+    petQuerySnapshot.forEach((doc) => {
       pets.push({
         id: doc.id,
         data: doc.data(),
