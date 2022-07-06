@@ -17,7 +17,7 @@ const petCollection = "pets";
 // add the path to receive request and set json as bodyParser to process body
 main.use("/api/v1", app);
 main.use(bodyParser.json());
-main.use(bodyParser.urlencoded({ extended: true }));
+main.use(bodyParser.urlencoded({ extended: false }));
 
 // Get pets
 main.get("/pets", async (req, res) => {
@@ -50,6 +50,7 @@ main.post("/pets", async (req, res) => {
         data: doc.data(),
       });
     });
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     console.log(error);
