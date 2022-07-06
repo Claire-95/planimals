@@ -2,6 +2,7 @@ import urlBase from "../constants";
 import { useState, useEffect } from "react";
 import PetList from "../components/pets/PetList";
 
+
 const GetPets = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedPets, setLoadedPets] = useState([]);
@@ -46,5 +47,23 @@ const GetPets = () => {
   );
 };
 
+const SetPet = (props) => {
+  console.log(props);
+  var petData = props;
+    fetch(urlBase + "pets", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(petData)
+    })
+    .then((res) => {
+      console.log(res.json())
+    });
+
+  return (console.log("Hi"));
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { GetPets };
+export { GetPets, SetPet };

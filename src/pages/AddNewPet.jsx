@@ -1,22 +1,10 @@
 import NewPetForm from "../components/pets/NewPetForm";
-import urlBase from "../constants";
-import { useEffect } from "react";
+import { SetPet } from "../services/pet-service";
 
 const AddNewPet = () => {
   function AddPetHandler(petData) {
     console.log(petData);
-    useEffect((petData) => {
-      fetch(urlBase + "pets", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(petData),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }, []);
+    SetPet(petData);
   }
 
   return (
