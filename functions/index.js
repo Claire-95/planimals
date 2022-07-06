@@ -38,9 +38,21 @@ main.get("/pets", async (req, res) => {
 });
 
 main.post("/pets", async (req, res) => {
-  console.log(req.body);
-  res.json(req.body);
-});
+  try {
+    await db.collection(petCollection).add(req.body);
+  const userQuerySnapshot = await db.collection(petCollection).get();
+
+const pets = [];
+userQuerySnapshot.forEach(
+  (doc)=>{
+    petStorage.push({
+      id: doc.id, data: doc.data(),
+    });
+  }
+  );
+  res.status(200).json(pets);
+} catch (error) {res.status(500).send(error);}}
+);
 
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
