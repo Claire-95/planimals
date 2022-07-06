@@ -48,8 +48,8 @@ const GetPets = () => {
 };
 
 const SetPet = (props) => {
-  console.log(props);
   var petData = props;
+  console.log(petData);
     fetch(urlBase + "pets", {
       method: "POST",
       mode: "no-cors",

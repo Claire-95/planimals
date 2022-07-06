@@ -39,7 +39,6 @@ main.get("/pets", async (req, res) => {
 
 main.post("/pets", async (req, res) => {
   console.log(req.body);
-  console.log("Hi, this is post calling.");
   res.json(req.body);
 });
 
