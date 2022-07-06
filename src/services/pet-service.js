@@ -59,7 +59,7 @@ const SetPet = (props) => {
       body: JSON.stringify(petData)
     })
     .then((res) => {
-      console.log(res.json())
+      console.log(res);
     });
 
   return (console.log("Hi"));
