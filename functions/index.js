@@ -41,6 +41,8 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     console.log(req.body);
+    console.log(req);
+    console.log(req.body.data);
     await db.collection(petCollection).add(req.body.data);
     const petQuerySnapshot = await db.collection(petCollection).get();
 
