@@ -42,21 +42,19 @@ main.post("/pets", async (req, res) => {
   try {
     console.log(req.body);
     await db.collection(petCollection).add(req.body);
-    const petQuerySnapshot = await db.collection(petCollection).get();
+    //   const petQuerySnapshot = await db.collection(petCollection).get();
 
-    const pets = [];
-    petQuerySnapshot.forEach((doc) => {
-      pets.push({
-        id: doc.id,
-        data: doc.data(),
-      });
-    });
+    //    const pets = [];
+    //    petQuerySnapshot.forEach((doc) => {
+    //      pets.push({
+    //        id: doc.id,
+    //        data: doc.data(),
+    //      });
+    //    });
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     console.log(error);
-    consoel.log(data);
-    console.log(pets);
     res.status(500).send(error);
   }
 });
