@@ -44,6 +44,7 @@ main.post("/pets", async (req, res) => {
     console.log(req.body);
     console.log(data);
     const res = await db.collection("pets").doc("test1").set(data);
+
     const petQuerySnapshot = await db.collection(petCollection).get();
 
     const pets = [];
