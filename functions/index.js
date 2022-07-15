@@ -40,9 +40,10 @@ main.get("/pets", async (req, res) => {
 // Post a Pet
 main.post("/pets", async (req, res) => {
   try {
-    const data = req.body;
+    const data = JSON.parse(JSON.stringify(req.body));
     console.log(req.body);
     console.log(data);
+
     const res = await db.collection("pets").doc("test1").set(data);
 
     const petQuerySnapshot = await db.collection(petCollection).get();
