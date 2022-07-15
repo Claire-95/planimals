@@ -12,7 +12,7 @@ const main = express();
 
 // initialize the database and the collection
 const db = admin.firestore();
-const petCollection = "pets";
+const petCollection = collectino(db, "pets");
 
 // add the path to receive request and set json as bodyParser to process body
 main.use("/api/v1", app);
