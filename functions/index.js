@@ -3,6 +3,8 @@ const functions = require("firebase-functions");
 const express = require("express");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
+const addDoc = require("firebase/firestore");
+const collection = require("firebase/firestore");
 
 admin.initializeApp(functions.config().firebase);
 
@@ -12,7 +14,7 @@ const main = express();
 
 // initialize the database and the collection
 const db = admin.firestore();
-const petCollection = collectino(db, "pets");
+const petCollection = collection(db, "pets");
 
 // add the path to receive request and set json as bodyParser to process body
 main.use("/api/v1", app);
