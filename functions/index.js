@@ -38,7 +38,7 @@ main.get("/pets", async (req, res) => {
 });
 
 // Post a Pet
-app.post("/pets", async (req, res) => {
+main.post("/pets", async (req, res) => {
   try {
     console.log(req.body);
     await db.collection(petCollection).add(req.body);
