@@ -40,7 +40,7 @@ main.get("/pets", async (req, res) => {
 // Post a Pet
 main.post("/pets", async (req, res) => {
   try {
-    const data = JSON.parse(JSON.stringify(req.body));
+    const data = JSON.parse(req.body);
     console.log(req.body);
     console.log(data);
 
