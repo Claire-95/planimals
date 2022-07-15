@@ -3,6 +3,8 @@ const functions = require("firebase-functions");
 const express = require("express");
 const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
+import * as admin from "firebase-admin";
+import * as functions from "firebase-functinos";
 
 admin.initializeApp(functions.config().firebase);
 
