@@ -41,7 +41,7 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     const data = req.body;
-    console.log($`req.body ${req.body}`);
+    console.log(req.body);
     const res = await db.collection("pets").doc(data.firstName).set(data);
     const petQuerySnapshot = await db.collection(petCollection).get();
 
@@ -55,7 +55,7 @@ main.post("/pets", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
-    console.log($`error ${error}`);
+    console.log(error);
     res.status(500).send(error);
   }
 });
