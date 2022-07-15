@@ -40,8 +40,9 @@ main.get("/pets", async (req, res) => {
 // Post a Pet
 main.post("/pets", async (req, res) => {
   try {
-    console.log(req.body);
-    await db.collection(petCollection).add(req.body);
+    const data = req.body;
+    console.log($`req.body ${req.body}`);
+    const res = await db.collection("pets").doc(data.firstName).set(data);
     const petQuerySnapshot = await db.collection(petCollection).get();
 
     const pets = [];
@@ -54,7 +55,7 @@ main.post("/pets", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
-    console.log(error);
+    console.log($`error ${error}`);
     res.status(500).send(error);
   }
 });
