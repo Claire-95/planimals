@@ -30,7 +30,6 @@ main.get("/pets", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     res.status(500).send(error);
@@ -55,7 +54,6 @@ main.post("/pets", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     console.log(error);
