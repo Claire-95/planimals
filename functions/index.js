@@ -36,7 +36,7 @@ main.get("/pets", async (req, res) => {
   }
 });
 
-// Post a Pet
+// Post a Pet to database
 main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
@@ -44,6 +44,7 @@ main.post("/pets", async (req, res) => {
     console.log(data);
     const fName = data.firstName;
     console.log(fName);
+    console.log("Hi");
 
     const res = await db.collection("pets").doc(fName).set(data);
 
