@@ -59,9 +59,23 @@ const SetPet = (props) => {
   }).then((res) => {
     console.log(res);
   });
+};
 
-  return console.log("Hi");
+//Delete pet
+const DeletePet = (props) => {
+  var petData = props;
+  console.log(petData);
+  fetch(urlBase + "pets", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(petData),
+  }).then((res) => {
+    console.log(res);
+  });
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetPets, SetPet };
+export { GetPets, SetPet, DeletePet };

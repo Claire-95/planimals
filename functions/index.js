@@ -41,17 +41,39 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
-    console.log(req.body);
-    console.log(data);
     const fName = data.firstName;
-    console.log(fName);
-    console.log("Hi");
 
     const res = await db.collection("pets").doc(fName).set(data);
 
     const petQuerySnapshot = await db.collection(petCollection).get();
 
     const pets = [];
+
+    petQuerySnapshot.forEach((doc) => {
+      pets.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
+    res.status(200).json(pets);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+//Delete pet
+main.post("/pets", async (req, res) => {
+  try {
+    const data = JSON.parse(req.body);
+    const fName = data.firstName;
+
+    const res = await db.collection("pets").doc(fName).delete;
+
+    const petQuerySnapshot = await db.collection(petCollection).get();
+
+    const pets = [];
+
     petQuerySnapshot.forEach((doc) => {
       pets.push({
         id: doc.id,
