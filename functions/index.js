@@ -42,7 +42,7 @@ main.post("/pets", async (req, res) => {
     const data = JSON.parse(req.body);
     console.log(req.body);
     console.log(data);
-    fName = data.firstName;
+    var fName = data.firstName;
     console.log(fName);
 
     const res = await db.collection("pets").doc(fName).set(data);
