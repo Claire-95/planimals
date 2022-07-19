@@ -1,21 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 
 :root {
   --salmon: #ff8682;
   --purple: #dc73ff;
   --lightPink: #f7daf0;
   --orange: #ffa582;
-  --darkPink: #ff82b8; 
+  --darkPink: #ff82b8;
   --writing: #731429;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
   background-color: #fcf3f6;
 }
 

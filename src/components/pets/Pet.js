@@ -2,13 +2,13 @@ import Card from "../ui/Card";
 import classes from "./Pet.module.css";
 import Button from "@mui/material/Button";
 import PetsIcon from "@mui/icons-material/Pets";
-import { DeletePet } from ".../services/pet-service";
+//import { DeletePet } from ".../services/pet-service";
 
 function Pet(props) {
-  function DeletePetHandler(petData) {
-    console.log(petData);
-    DeletePet(petData);
-  }
+  //   function DeletePetHandler(petData) {
+  //     console.log(petData);
+  //     DeletePet(petData);
+  //   }
 
   return (
     <li className={classes.item}>
@@ -21,7 +21,7 @@ function Pet(props) {
         <Button
           variant="contained"
           onClick={() => {
-            DeletePetHandler();
+            //DeletePetHandler();
           }}
         >
           Delete Pet
