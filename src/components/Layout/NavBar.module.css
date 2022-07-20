@@ -52,7 +52,23 @@ button.navBtn {
     opacity: 1;
   }
 
-  nav {
+  nav.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColour);
+    transition: 1s;
+    transform: none;
+  }
+
+  nav.closed {
     position: fixed;
     top: 0;
     left: 0;
@@ -66,10 +82,6 @@ button.navBtn {
     background-color: var(--mainColour);
     transition: 1s;
     transform: translateY(-100vh);
-  }
-
-  nav.responsive_nav {
-    transform: none;
   }
 
   button.navCloseBtn {
