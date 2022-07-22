@@ -63,7 +63,7 @@ main.post("/pets", async (req, res) => {
 });
 
 // Delete pet
-main.post("/pets", async (req) => {
+main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     const id = data.id;
@@ -81,8 +81,10 @@ main.post("/pets", async (req) => {
         data: doc.data(),
       });
     });
+    res.status(200).json(pets);
   } catch (error) {
     console.log(error);
+    res.status(500);
   }
 });
 
