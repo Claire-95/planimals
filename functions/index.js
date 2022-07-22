@@ -64,28 +64,28 @@ main.post("/pets", async (req, res) => {
 
 // Delete pet
 main.post("/pets", async (req, res) => {
-  // try {
-  //   const data = JSON.parse(req.body);
-  //   const id = data.id;
-  //   console.log(id);
+  try {
+    const data = JSON.parse(req.body);
+    const id = data.id;
+    console.log(id);
 
-  const res = await db.collection("pets").doc(id).delete;
+    const res = await db.collection("pets").doc(id).delete;
 
-  //   const petQuerySnapshot = await db.collection(petCollection).get();
+    const petQuerySnapshot = await db.collection(petCollection).get();
 
-  //   const pets = [];
+    const pets = [];
 
-  //   petQuerySnapshot.forEach((doc) => {
-  //     pets.push({
-  //       id: doc.id,
-  //       data: doc.data(),
-  //     });
-  //   });
-  //   res.status(200).json(pets);
-  // } catch (error) {
-  //   console.log(error);
-  //   res.status(500);
-  // }
+    petQuerySnapshot.forEach((doc) => {
+      pets.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
+    res.status(200).json(pets);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
 });
 
 // define google cloud function name
