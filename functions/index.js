@@ -65,9 +65,7 @@ main.post("/pets", async (req, res) => {
 // Delete pet
 main.post("/pets", async (req, res) => {
   try {
-    var pet_query = db
-      .collection("pets")
-      .where("fName", "==", petData.firstName);
+    var pet_query = db.collection("pets").where("id", "==", petData.id);
     pet_query.get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         doc.ref.delete();

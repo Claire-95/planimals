@@ -6,7 +6,7 @@ import { DeletePet } from "../../services/pet-service";
 function Pet(props) {
   function DeletePetHandler(petData) {
     console.log(petData);
-    console.log(petData.firstName);
+    console.log(petData.id);
     DeletePet(petData);
   }
 
