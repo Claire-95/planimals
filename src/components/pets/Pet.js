@@ -3,6 +3,7 @@ import classes from "./Pet.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 
+//Produces content for pet cards
 function Pet(props) {
   function DeletePetHandler(petData) {
     console.log(petData);
