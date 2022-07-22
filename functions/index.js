@@ -63,7 +63,7 @@ main.post("/pets", async (req, res) => {
 });
 
 // Delete pet
-main.post("/pets", async (req, res) => {
+main.delete("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     const id = data.id;
