@@ -67,6 +67,7 @@ main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     const fName = data.firstName;
+    console.log(fName);
 
     const res = await db.collection("pets").doc(fName).delete;
 
