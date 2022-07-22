@@ -41,7 +41,7 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
-    //HERE IS WHERE THE ID IS SET!!!
+    // HERE IS WHERE THE ID IS SET!!!
     const id = data.firstName + data.lastName + data.species;
 
     const res = await db.collection("pets").doc(id).set(data);
