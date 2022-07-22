@@ -41,9 +41,10 @@ main.get("/pets", async (req, res) => {
 main.post("/pets", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
-    const fName = data.firstName;
+    //HERE IS WHERE THE ID IS SET!!!
+    const id = data.firstName + data.lastName + data.species;
 
-    const res = await db.collection("pets").doc(fName).set(data);
+    const res = await db.collection("pets").doc(id).set(data);
 
     const petQuerySnapshot = await db.collection(petCollection).get();
 
