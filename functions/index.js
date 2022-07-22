@@ -65,23 +65,14 @@ main.post("/pets", async (req, res) => {
 // Delete pet
 main.post("/pets", async (req, res) => {
   try {
-    const data = JSON.parse(req.body);
-    const fName = data.firstName;
-    console.log(fName);
-
-    const res = await db.collection("pets").doc(fName).delete;
-
-    const petQuerySnapshot = await db.collection(petCollection).get();
-
-    const pets = [];
-
-    petQuerySnapshot.forEach((doc) => {
-      pets.push({
-        id: doc.id,
-        data: doc.data(),
+    var pet_query = db
+      .collection("pets")
+      .where("fName", "==", petData.firstName);
+    pet_query.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        doc.ref.delete();
       });
     });
-    res.status(200).json(pets);
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
